@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
 
     QDeclarativeView viewer;
     viewer.setViewport(new QGLWidget);
+    viewer.setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
     viewer.setSource(QUrl("./Car3DMain.qml"));
     viewer.show();
 
