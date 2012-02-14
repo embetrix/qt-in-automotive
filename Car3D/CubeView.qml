@@ -34,9 +34,9 @@ Viewport {
     Cube {
         scale: 2
 
-        NumberAnimation { target: rotateX; running: true; loops: Animation.Infinite; property: "angle"; to : 360.0; duration: 3000; }
-        NumberAnimation { target: rotateY; running: true; loops: Animation.Infinite; property: "angle"; to : 360.0; duration: 4000; }
-        NumberAnimation { target: rotateZ; running: true; loops: Animation.Infinite; property: "angle"; to : 360.0; duration: 5000; }
+        RotationAnimation { target: rotateX; running: true; loops: Animation.Infinite; property: "angle"; from: 0; to : 360.0; duration: 3000; }
+        RotationAnimation { target: rotateY; running: true; loops: Animation.Infinite; property: "angle"; from: 0; to : 360.0; duration: 4000; }
+        RotationAnimation { target: rotateZ; running: true; loops: Animation.Infinite; property: "angle"; from: 0; to : 360.0; duration: 5000; }
 
         transform: [
             Rotation3D { id: rotateX; axis: Qt.vector3d(1, 0, 0) },
