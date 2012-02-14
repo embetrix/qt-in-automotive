@@ -43,9 +43,9 @@ Item3D {
     }
 
     function stopAnimation() {
-        if (animationContainer.currentAnimation != null) {
-            animationContainer.currentAnimation.loops = 1
-        }
+        if (animationContainer.currentAnimation != null)
+            animationContainer.currentAnimation.stop();
+
         animationContainer.currentAnimation = null;
     }
 
@@ -61,10 +61,8 @@ Item3D {
         else if (wheelId == 3)
             animationContainer.currentAnimation = rightRearWheelPulseAnimation
 
-        if (animationContainer.currentAnimation != null) {
-            animationContainer.currentAnimation.loops = Animation.Infinite
+        if (animationContainer.currentAnimation != null)
             animationContainer.currentAnimation.start()
-        }
     }
 
     function swingDoor(doorId) {
@@ -79,10 +77,8 @@ Item3D {
         else if (doorId == 3)
             animationContainer.currentAnimation = rightRearDoorRotationAnimation
 
-        if (animationContainer.currentAnimation != null) {
-            animationContainer.currentAnimation.loops = Animation.Infinite
+        if (animationContainer.currentAnimation != null)
             animationContainer.currentAnimation.start()
-        }
     }
 
 
@@ -137,7 +133,7 @@ Item3D {
         axis: Qt.vector3d(0, 1, 0)
         origin: meshes.leftFrontDoorMountingVector3D
     }
-    SequentialAnimation { id: leftFrontDoorRotationAnimation; //running: true; loops: Animation.Infinite
+    SequentialAnimation { id: leftFrontDoorRotationAnimation; loops: Animation.Infinite; alwaysRunToEnd: true
         NumberAnimation { target: leftFrontDoorRotation; property: "angle"; from: 0; to : -30.0; duration: 1000; easing.type: Easing.OutBounce}
         NumberAnimation { target: leftFrontDoorRotation; property: "angle"; from: -30; to : 0.0; duration: 500; easing.type: Easing.OutCubic}    }
 
@@ -147,7 +143,7 @@ Item3D {
         axis: Qt.vector3d(0, 1, 0)
         origin: meshes.leftBackDoorMountingVector3D
     }
-    SequentialAnimation { id: leftRearDoorRotationAnimation; //running: true; loops: Animation.Infinite
+    SequentialAnimation { id: leftRearDoorRotationAnimation; loops: Animation.Infinite; alwaysRunToEnd: true
         NumberAnimation { target: leftRearDoorRotation; property: "angle"; from: 0; to : -30.0; duration: 1000; easing.type: Easing.OutBounce}
         NumberAnimation { target: leftRearDoorRotation; property: "angle"; from: -30; to : 0.0; duration: 500; easing.type: Easing.OutCubic}     }
 
@@ -157,7 +153,7 @@ Item3D {
         axis: Qt.vector3d(0, 1, 0)
         origin: meshes.rightFrontDoorMountingVector3D
     }
-    SequentialAnimation { id: rightFrontDoorRotationAnimation; //running: true; loops: Animation.Infinite
+    SequentialAnimation { id: rightFrontDoorRotationAnimation; loops: Animation.Infinite; alwaysRunToEnd: true
         NumberAnimation { target: rightFrontDoorRotation; property: "angle"; from: 0; to : 30.0; duration: 1000; easing.type: Easing.OutBounce}
         NumberAnimation { target: rightFrontDoorRotation; property: "angle"; from: 30; to : 0.0; duration: 500; easing.type: Easing.OutCubic}    }
 
@@ -167,7 +163,7 @@ Item3D {
         axis: Qt.vector3d(0, 1, 0)
         origin: meshes.rightRearDoorMountingVector3D
     }
-    SequentialAnimation { id: rightRearDoorRotationAnimation; //running: true; loops: Animation.Infinite
+    SequentialAnimation { id: rightRearDoorRotationAnimation; loops: Animation.Infinite; alwaysRunToEnd: true
         NumberAnimation { target: rightRearDoorRotation; property: "angle"; from: 0; to : 30.0; duration: 1000; easing.type: Easing.OutBounce}
         NumberAnimation { target: rightRearDoorRotation; property: "angle"; from: 30; to : 0.0; duration: 500; easing.type: Easing.OutCubic}    }
 
@@ -177,7 +173,7 @@ Item3D {
         scale: 1.0
         origin: meshes.leftFrontWheelCenter
     }
-    SequentialAnimation { id: leftFrontWheelPulseAnimation; /*running: true; loops: Animation.Infinite*/
+    SequentialAnimation { id: leftFrontWheelPulseAnimation; loops: Animation.Infinite; alwaysRunToEnd: true
         NumberAnimation { target: leftFrontWheelPulse; property: "scale"; from: 1.0;  to: 1.05; duration: 200;}
         NumberAnimation { target: leftFrontWheelPulse; property: "scale"; from: 1.05; to: 0.9;  duration: 200;}
         NumberAnimation { target: leftFrontWheelPulse; property: "scale"; from: 0.9;  to: 1.0;  duration: 200;}    }
@@ -187,7 +183,7 @@ Item3D {
         scale: 1.0
         origin: meshes.rightFrontWheelCenter
     }
-    SequentialAnimation { id: rightFrontWheelPulseAnimation; /*running: true; loops: Animation.Infinite*/
+    SequentialAnimation { id: rightFrontWheelPulseAnimation; loops: Animation.Infinite; alwaysRunToEnd: true
         NumberAnimation { target: rightFrontWheelPulse; property: "scale"; from: 1.0;  to: 1.05; duration: 200;}
         NumberAnimation { target: rightFrontWheelPulse; property: "scale"; from: 1.05; to: 0.9;  duration: 200;}
         NumberAnimation { target: rightFrontWheelPulse; property: "scale"; from: 0.9;  to: 1.0;  duration: 200;}    }
@@ -197,7 +193,7 @@ Item3D {
         scale: 1.0
         origin: meshes.leftRearWheelCenter
     }
-    SequentialAnimation { id: leftRearWheelPulseAnimation; /*running: true; loops: Animation.Infinite*/
+    SequentialAnimation { id: leftRearWheelPulseAnimation; loops: Animation.Infinite; alwaysRunToEnd: true
         NumberAnimation { target: leftRearWheelPulse; property: "scale"; from: 1.0;  to: 1.05; duration: 200;}
         NumberAnimation { target: leftRearWheelPulse; property: "scale"; from: 1.05; to: 0.9;  duration: 200;}
         NumberAnimation { target: leftRearWheelPulse; property: "scale"; from: 0.9;  to: 1.0;  duration: 200;}    }
@@ -207,7 +203,7 @@ Item3D {
         scale: 1.0
         origin: meshes.rightRearWheelCenter
     }
-    SequentialAnimation { id: rightRearWheelPulseAnimation; /*running: true; loops: Animation.Infinite*/
+    SequentialAnimation { id: rightRearWheelPulseAnimation; loops: Animation.Infinite; alwaysRunToEnd: true
         NumberAnimation { target: rightRearWheelPulse; property: "scale"; from: 1.0;  to: 1.05; duration: 200;}
         NumberAnimation { target: rightRearWheelPulse; property: "scale"; from: 1.05; to: 0.9;  duration: 200;}
         NumberAnimation { target: rightRearWheelPulse; property: "scale"; from: 0.9;  to: 1.0;  duration: 200;}    }
