@@ -1,6 +1,6 @@
 
 SOURCES += main.cpp
 
-QT += declarative gui core opengl
+QT += declarative quick
 
 OTHER_FILES += *.qml HyundaiGenesis_sliced_0.2/*

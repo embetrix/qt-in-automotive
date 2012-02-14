@@ -1,15 +1,12 @@
-#include <QtGui/QApplication>
+#include <QGuiApplication>
 #include <QDebug>
-#include <QDeclarativeView>
-#include <QGLWidget>
+#include <QtQuick/QQuickView>
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    QGuiApplication app(argc, argv);
 
-    QDeclarativeView viewer;
-    viewer.setViewport(new QGLWidget);
-    viewer.setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
+    QQuickView viewer;
     viewer.setSource(QUrl("./Car3DMain.qml"));
     viewer.show();
 
