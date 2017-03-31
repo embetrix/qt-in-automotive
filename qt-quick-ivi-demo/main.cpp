@@ -44,7 +44,6 @@ int main(int argc, char *argv[])
     viewer.setOrientation(QmlApplicationViewer::LockLandscape);
     viewer.loadDummyDataFiles(QLatin1String("./qml/dummydata"));
     viewer.setMainQmlFile(QLatin1String("./qml/CarMMI.qml"));
-    viewer.show();
-
+    viewer.showFullScreen();
     return app.exec();
 }
